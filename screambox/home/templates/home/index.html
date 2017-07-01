@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+
+
+{% block body %}
+<div id="homepageform">
+	<form action='#' method="#" id="usrform">
+	<h1>{{message1}}</h1>
+	<div class="form-group">
+  <label for="comment">{{message2}}</label>
+  <textarea class="form-control" rows="5" maxlength="500" id="comment"></textarea>
+</div>
+	<button type="submit"  aria-label="left Align">
+	 Scream<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+	</button>
+	</form>
+</div>	
+{% endblock %}
+
+
+
+
+
+
