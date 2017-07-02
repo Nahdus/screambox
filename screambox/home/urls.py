@@ -5,8 +5,9 @@ app_name = 'home'
 
 urlpatterns = [
     #ip-add
-    url(r'^$', views.home),
+    url(r'^$', views.home, name="home"),
     #ip-add/screams
-    #url(r'^/screams$', views.screams),
+    url(r'^screams$', views.screams, name="screams" ),
+    
     
 ]
