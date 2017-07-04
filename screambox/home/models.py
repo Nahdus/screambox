@@ -8,5 +8,5 @@ class Screams(models.Model):
     scream=models.CharField(max_length=250)
 
     def __str__(self):
-        return self.screamer +" :"+"\n"+ self.scream
+        return "screamer"+ self.screamer +" :"+"\n"+ "scream"+ self.scream
     

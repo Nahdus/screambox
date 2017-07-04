@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Screams
 # Create your views here.
 
 
@@ -19,8 +19,10 @@ def home(request):
 def screams(request):
 
     active="active"
+    screams=Screams.objects.all()
     
     context={
+        "screams":screams,
         "status_home":"",
         "status_screams":" class="+active,#highlights screams in navbar
         }

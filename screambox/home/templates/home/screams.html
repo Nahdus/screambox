@@ -1,11 +1,19 @@
 {% extends 'home/base.html' %}
 
 {% block body %}
+{% for scream in screams %}
 <div class="container-fluid">
-  <p>Hey lookat me i am meeeseeks</p>
+<div class="container">
+  <div class="jumbotron">
+	<p>{{scream.scream}}</p>
+	<em>{{scream.screamer}}</em>
+	</div>
+   
 </div>
+	
+</div>
+{%endfor%}
 
-<div class="container-fluid">
-  <p>namma ooru kumari</p>
-</div>
+
 {% endblock %}
+
