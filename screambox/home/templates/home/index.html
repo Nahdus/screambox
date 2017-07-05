@@ -3,14 +3,15 @@
 
 {% block body %}
 <div id="homepageform">
-	<form action='#' method="#" id="usrform">
+	<form input type='text' method="post" id="usrform" action="{% url 'home:screaming' %}" >
+	{% csrf_token %}
 	<h1>{{message1}}</h1>
 	<div class="form-group">
   <label for="comment">{{message2}}</label>
-  <textarea class="form-control" rows="5" maxlength="500" id="comment"></textarea>
+  <textarea name="inputtext" class="form-control" rows="5" maxlength="500" id="comment"></textarea>
 </div>
 	<button type="submit"  aria-label="left Align">
-	 Scream<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+	 Scream <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
 	</button>
 	</form>
 </div>	

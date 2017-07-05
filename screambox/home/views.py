@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView,UpdateView, DeleteView
 from .models import Screams
 # Create your views here.
 
@@ -28,5 +29,38 @@ def screams(request):
         }
     
     return render(request,'home/screams.html',context)
+
+
+
+def screaming(request):
+    a=Screams()
+    a.scream=request.POST.get('inputtext', '')
+    a.screamer="anonymous"
+    a.save()
+    
+    active="active"
+    screams=Screams.objects.all()
+    
+    context={
+        "screams":screams,
+        "status_home":"",
+        "status_screams":" class="+active,#highlights screams in navbar
+        }
+    
+    
+    return render(request,'home/screams.html',context)
+
+
+class ScreamsCreate(CreateView):
+    model = Screams
+    
+    fields=["scream"]
+
+
+
+
+
+
+
 
 
