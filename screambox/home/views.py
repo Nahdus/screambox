@@ -36,19 +36,31 @@ def screaming(request):
     a=Screams()
     a.scream=request.POST.get('inputtext', '')
     a.screamer="anonymous"
-    a.save()
+    
+        
+    
     
     active="active"
     screams=Screams.objects.all()
-    
-    context={
-        "screams":screams,
-        "status_home":"",
-        "status_screams":" class="+active,#highlights screams in navbar
-        }
-    
-    
-    return render(request,'home/screams.html',context)
+    if a.scream =='':
+        context={
+        'message1':"Welcome to Screambox",
+        'message2':"sorry! we didnt hear you",
+        "status_home":" class="+active, #highlights home in top navbar
+        "status_screams":"",
+        
+            }
+        return render(request,'home/index.html',context)
+    else:
+        a.save()
+        context={
+            "screams":screams,
+            "status_home":"",
+            "status_screams":" class="+active,#highlights screams in navbar
+            }
+        
+        
+        return render(request,'home/screams.html',context)
 
 
 class ScreamsCreate(CreateView):
